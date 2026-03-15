@@ -4,7 +4,7 @@
 using namespace std;
 int main() {
     // Specify the input and output file paths
-    string pdfPath = "Individual-Transaction_01-22-2026.pdf";
+    string pdfPath = "Sample.pdf";
     string outputFilePath = "output.txt";
     // Construct the command to run pdftotext
     string command = "pdftotext " + pdfPath + " " + outputFilePath;
