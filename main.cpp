@@ -33,5 +33,7 @@ int pdfToText(string pdfPath, string outputFilePath) {
 }
 
 int main(){
+    pdfToText("transactions/Individual-Transaction_04-14-2026.pdf", 
+        "transactions/Individual-Transaction_04-14-2026.txt");
     return 0;
 }
