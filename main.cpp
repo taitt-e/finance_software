@@ -6,7 +6,7 @@
 #include <fstream>
 using namespace std;
 
-int openCSV(string textFilePath){
+int openCSV(){
     //Generate first columns based on reading .cfg
     //open .csv file
     ofstream csvfile;
@@ -62,6 +62,6 @@ int pdfToText(string pdfPath, string outputFilePath) {
 int main(){
     pdfToText("transactions/Individual-Transaction_04-14-2026.pdf", 
         "transactions/Individual-Transaction_04-14-2026.txt");
-    openCSV("transactions/Individual-Transaction_04-14-2026.txt");
+    openCSV();
     return 0;
 }
