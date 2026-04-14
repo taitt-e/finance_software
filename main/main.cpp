@@ -2,10 +2,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-int main() {
-    // Specify the input and output file paths
-    string pdfPath = "Sample.pdf";
-    string outputFilePath = "output.txt";
+int pdfToText(string pdfPath, string outputFilePath) {
     // Construct the command to run pdftotext
     string command = "pdftotext " + pdfPath + " " + outputFilePath;
     int status = system(command.c_str());
@@ -32,5 +29,9 @@ int main() {
         cout << "Failed to open output file." << endl;
         return 1; // Exit the program with error code
     }
-    return 0; // Exit the program successfully
+    return 0; // Exit the function successfully
+}
+
+int main(){
+    return 0;
 }
