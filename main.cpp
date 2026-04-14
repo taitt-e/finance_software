@@ -1,7 +1,16 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <iostream>
+#include <fstream>
 using namespace std;
+
+int textTocsv(string textFilePath, string outputFilePath){
+    //Generate first columns based on reading .cfg
+
+}
+
 int pdfToText(string pdfPath, string outputFilePath) {
     // Construct the command to run pdftotext
     string command = "pdftotext " + pdfPath + " " + outputFilePath;
