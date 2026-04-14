@@ -6,9 +6,27 @@
 #include <fstream>
 using namespace std;
 
-int textTocsv(string textFilePath, string outputFilePath){
+int openCSV(string textFilePath){
     //Generate first columns based on reading .cfg
-
+    //open .csv file
+    ofstream csvfile;
+    csvfile.open("report.csv");
+    //open .cfg file and write keys into first row of csv
+    //values will be used as keys themselves to identify data in the .txt files for another function.
+    // https://stackoverflow.com/questions/6892754/creating-a-simple-configuration-file-and-parser-in-c
+    ifstream configfile("columns.cfg");
+    string line1;
+    while(getline(configfile, line1)){
+        istringstream linestream(line1);
+        string key;
+        if(getline(linestream, key, '=')){
+            csvfile << key;
+            csvfile << ",";
+        }
+    }
+    csvfile << "/n";
+    csvfile.close();
+    return 0;
 }
 
 int pdfToText(string pdfPath, string outputFilePath) {
@@ -32,8 +50,8 @@ int pdfToText(string pdfPath, string outputFilePath) {
         }
         outputFile.close();
         // Display the extracted text
-        cout << "Text content extracted from PDF document:" << endl;
-        cout << textContent << endl;
+        //cout << "Text content extracted from PDF document:" << endl;
+        //cout << textContent << endl;
     } else {
         cout << "Failed to open output file." << endl;
         return 1; // Exit the program with error code
@@ -44,5 +62,6 @@ int pdfToText(string pdfPath, string outputFilePath) {
 int main(){
     pdfToText("transactions/Individual-Transaction_04-14-2026.pdf", 
         "transactions/Individual-Transaction_04-14-2026.txt");
+    openCSV("transactions/Individual-Transaction_04-14-2026.txt");
     return 0;
 }
